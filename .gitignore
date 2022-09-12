@@ -1,0 +1,36 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+.reach/
+.vscode/ 
+
+# dependencies
+*/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+ref.js
+test.js
+
+# production
+*/build
+build
+build/*
+index1.rsh
+index2.rsh
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+node_modules
