@@ -15,14 +15,13 @@ Those who are not developers but have projects that they may want to execute are
 
 ### Pre-requisites and Local Development
 
-Developers using this DApp should already have Reach, Docker and Node installed on their local machines.
+Developers using this DApp should already have Reach and Docker installed on their local machines.
 
 #### The guidelines for installation can be found below
 
 - [Instructions for installing Reach and Docker](https://docs.reach.sh/quickstart/#qs-win-install)
-- [Instructions for installing Node](https://nodejs.org/en/download/)  
 
-You can some testnet Algos from the [Algo Faucet](https://bank.testnet.algorand.network/).
+You can get some testnet Algos from the [Algo Faucet](https://bank.testnet.algorand.network/), just incase you would prefer using an existing account to test out this DApp.
 
 ### Running the DApp
 
@@ -36,11 +35,7 @@ We recommend running the DApp using Ubuntu20.04 terminal.
 
 3. Change Directory (cd) into the directory.
 
-4. Run the following commands to start up the app:  
-
-```sh
-npm install
-```
+4. Run the following command to start up the DApp:  
 
 ```sh
 ./reach run
