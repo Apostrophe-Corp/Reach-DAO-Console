@@ -53,7 +53,7 @@ We recommend running the DApp using Ubuntu20.04 terminal.
 
 4. Please navigate to the **Proposals view** by entering the corresponding menu option. You can then go ahead to create a proposal by selecting the **Make a Proposal** option from the menu and  filling out all the prompts and confirming the entries, after which the proposal would be created and added to the list of active proposals.  
 
-5. After creating a proposal, you can go to the next terminal and attach as an Attaché following the processes described in Step 1 and navigate to the Proposals view. Then select the **Select an Active Proposal** option to see a list of active proposals and can go ahead to enter the ID of the proposal of interest to up vote, down vote or contribute to.  
+5. After creating a proposal, you can go to the next terminal and connect as an Attaché following the processes described in Step 1 and navigate to the **Proposals view**. Then select the **Select an Active Proposal** option to see a list of active proposals and can go ahead to enter the ID of the proposal of interest to up vote, down vote or contribute to.  
 
 A user may up vote, down vote or contribute to a proposal before the proposal deadline which starts counting as soon as the proposal is created, This is currently set to 20 blocks on Algorand, 2 blocks on ETH and 200 blocks on Conflux. You may change these values if you choose by changing the values on line 324 of the [index.mjs](./index.mjs) file in your code editor.  
 
