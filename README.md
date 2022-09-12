@@ -4,8 +4,9 @@ This project was created for the decentralized Umoja3 Bounty hack, organized by 
 
 The DApp allows any user to create a proposal for other users to contribute to and vote on. If the proposal passes, it becomes a bounty funded by the contributions as well as funds raised from sponsors. If the proposal does not pass, all users who contributed can claim a refund on the amounts that each of them contributed.  
 
-We envision that a proposal could be a fullscale DApp, A part of a DApp, A tutorial, or frameworks or tools that make building with Reach easier and faster for developers. We do not limit proposals to this and look forward to creative ways users use our DApp.
-The central idea behind the Reach DAO is to allow projects to be executed or actualized faster by incentivising them via bounties while also providing an avenue for Reach Developers to gain much needed experience and expertise and earn money while doing this.  
+We envision that a proposal could be a full scale DApp, A part of a DApp, A tutorial, or frameworks or tools that make building with Reach easier and faster for developers. We do not limit proposals to this and look forward to creative ways users use our DApp.  
+
+The central idea behind the Reach DAO is to allow projects to be executed or actualized faster by creating a means to incentivize them via bounties while also providing an avenue for Reach Developers to gain much needed experience and expertise and earn money while doing this.  
 
 The end game is for the Reach DAO to be a hub for Reach developers with the benefit of the Reach community in mind, and we hope that users create proposals with this in mind.
 Those who are not developers but have projects that they may want to execute are also invited to create proposals.
@@ -20,8 +21,6 @@ Developers using this DApp should already have Reach, Docker and Node installed 
 
 - [Instructions for installing Reach and Docker](https://docs.reach.sh/quickstart/#qs-win-install)
 - [Instructions for installing Node](https://nodejs.org/en/download/)  
-
-In addition, they should have an Algorand wallet (preferably Pera Algo Wallet) installed on their phone and loaded with Testnet Algos in order to be able to sign transactions and contribute to proposals. The wallet can be installed from the App store (i-Phone) or Google Play (Android) as is appropiate.
 
 You can some testnet Algos from the [Algo Faucet](https://bank.testnet.algorand.network/).
 
@@ -44,72 +43,38 @@ npm install
 ```
 
 ```sh
-./reach react
+./reach run
 ```
 
 ## Usage
 
-Please be aware that you would have to sign multiple transactions on your mobile device while going through most of the steps below.
+>Note: We recommend running this project on two terminals, but strongly advise against running `./reach run` simultaneously. Instead after a successful build on the first terminal, then run the DApp on the second one. This is to prevent duplicate network names from being created on build.
 
-1. Open a few tabs in your favourite browser (we recommend at least 3 tabs).
+1. Run the DApp in preferably in two terminals.
 
-2. Navigate to the app at the URL <http://localhost:3000>.  
+2. After a successful build, the DApp would start on the terminal, afterwards you may decide to create an account (Only possible on Reach DevNet) or connect an existing account through the mnemonic.
 
-3. Click on the Connect Wallet button to activate wallet connect and scan the QR code.  
+3. After selecting your role, i.e. the Admin that deploys or an Attaché that attaches to a deployed contract, you would be greeted by the **Info Center view**.
 
-4. Click on the Deploy button to deploy the contract as an Admin in the first tab.
+4. Please navigate to the **Proposals view** by entering the corresponding menu option. You can then go ahead to create a proposal by selecting the **Make a Proposal** option from the menu and  filling out all the prompts and confirming the entries, after which the proposal would be created and added to the list of active proposals.  
 
-5. Copy the contract information to the clipboard by clicking on the Copy to Clipboard button and then head on over to the next tab and follow steps 1 - 3 after which you can attach to the contract as a new user by clicking on Attach and pasting the contract information and clicking on the the button to attach.
+5. After creating a proposal, you can go to the next terminal and attach as an Attaché following the processes described in Step 1 and navigate to the Proposals view. Then select the **Select an Active Proposal** option to see a list of active proposals and can go ahead to enter the ID of the proposal of interest to up vote, down vote or contribute to.  
 
-6. You would be greeted by the Welcome page.
+A user may up vote, down vote or contribute to a proposal before the proposal deadline which starts counting as soon as the proposal is created, This is currently set to 20 blocks on Algorand, 2 blocks on ETH and 200 blocks on Conflux. You may change these values if you choose by changing the values on line 324 of the [index.mjs](./index.mjs) file in your code editor.  
 
-7. Please navigate to the Proposals page by clicking on the Proposals button on the top right-hand side of your screen. You can then go ahead to create a proposal by clicking on the Make a Proposal button and  filling out all the fields of the form after which the proposal would be added to the list of active proposals.
+If a proposal passes i.e it has more up votes than down votes after the deadline elapses, the proposal is moved to the list of active bounties which can be found on the **Bounties view**. If the proposal fails then any user who contributed can claim a refund by navigating to the list of timed out proposals by selecting the **Select a Timed out Proposal** option on the **Proposal view**, and then entering the proposal ID.  
 
-8. After creating a proposal, you can go to the next tab and attach as a seperate user following the processes described in steps above and navigate to the proposals page. You would see a list of active proposals and can go ahead to upvote, downvote or contribute to any proposal that you choose to.  
-
-A user may upvote, downvote or contribute to a proposal before the proposal deadline which starts counting as soon as the proposal is created, This is currently set to 50 blocks on Algorand, 5 blocks on ETH and 500 blocks on Conflux. You may change these values if you choose by changing the values on line 301 of the ReachContext.js file in your code editor by following the path [/src/context/ReachContext.js](src/context/ReachContext.js).  
-
-If a proposal passes i.e it has more upvotes than downvotes after the deadline elapses, the proposal is moved to the list of active bounties which can be found on the bounties page. If the proposal fails then any user who contributed can claim a refund by clicking on the claim refund button which becomes visible when a proposal fails.  
-
-We encourage you to play around with the DApp and create as many proposala as you want to and upvote, downvote and contribute to them.  
+We encourage you to play around with the DApp and create as many proposals as you want to and up vote, down vote and contribute to them.  
 
 ## Troubleshooting
 
-### Module not found: can't reslove 'react-icons/im'
+### [‼] A transaction clashed with a timeout
 
-If you get the error below:
+This simply means that the user tried to carry out a transaction such as a contribution, an up vote, or down vote, while the contract was enforcing operations for a timed out proposal.
 
-![example](public/images/react-icons-error.jpeg)
+### [‼] A transaction clashed with a teardown
 
-Please run the following commands:  
-
-```sh
-npm install react-icons
-```
-
-```sh
-./reach react
-```
-
-### docker: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-
-If you get the error below:
-
-![example2](public/images/docker-error.png)
-
-Please run the following commands:  
-
-```sh
-sudo service docker stop
-```
-
-```sh
-sudo service docker start
-```
-
-```sh
-./reach react
-```
+This simply means that the user tried to carry out a transaction such as a contribution, an up vote, or down vote, while the contract was enforcing operations for a terminated proposal (A proposal that failed and its balance has been emptied by refunds).
 
 Should you encounter any other errors, please tag either `goonerlabs#1008` 0r `Emmanuel Agbavwe#2954` in the help channel of the [Reach Discord Server](bit.ly/3BnPyKd).  
 
@@ -117,17 +82,17 @@ And the rest of the awesome team at Reach, The African Blockchain Alliance and T
 
 ## The DApp
 
-### The Landing page
+### The Info Center View
 
-![welcome to the hub](public/images/landing.png)
+![InfoCenter](images/InfoCenter.png)
 
-### The Proposals Page
+### The Proposals View
 
-![Proposals](public/images/proposals.png)
+![Proposals](images/Proposals.png)
 
-### The Bounties Page
+### The Bounties View
 
-![Bounties](public/images/bounties.png)
+![Bounties](images/Bounties.png)
 
 ## Authors
 
@@ -149,4 +114,8 @@ To contribute, simply:
 - Fork this repo, make your updates and additions
 - Create a GitHub discussion and bring your new ideas to our notice.
 - Once approved, set up a pull request.
-- After revision, your name will forever be among the wonderful develpers who contributed to building Reach DAO.  
+- After revision, your name will forever be among the wonderful developers who contributed to building Reach DAO.  
+
+## License
+
+The Reach DAO project is licensed under the [Apache License, Version 2.0](./LICENSE).
