@@ -4,7 +4,7 @@ This project was created for the decentralized Umoja3 Bounty hack, organized by 
 
 The DApp allows any user to create a proposal for other users to contribute to and vote on. If the proposal passes, it becomes a bounty funded by the contributions as well as funds raised from sponsors. If the proposal does not pass, all users who contributed can claim a refund on the amounts that each of them contributed.  
 
-We envision that a proposal could be a full scale DApp, A part of a DApp, A tutorial, or frameworks or tools that make building with Reach easier and faster for developers. We do not limit proposals to this and look forward to creative ways users use our DApp.  
+We envision that a proposal could be a full scale DApp, a part of a DApp, a tutorial, frameworks or tools that make building with Reach easier and faster for developers. We do not limit proposals to this and look forward to creative ways users use our DApp.  
 
 The central idea behind the Reach DAO is to allow projects to be executed or actualized faster by creating a means to incentivize them via bounties while also providing an avenue for Reach Developers to gain much needed experience and expertise and earn money while doing this.  
 
@@ -62,7 +62,7 @@ npm install
 
 A user may up vote, down vote or contribute to a proposal before the proposal deadline which starts counting as soon as the proposal is created, This is currently set to 20 blocks on Algorand, 2 blocks on ETH and 200 blocks on Conflux. You may change these values if you choose by changing the values on line 324 of the [index.mjs](./index.mjs) file in your code editor.  
 
-If a proposal passes i.e it has more up votes than down votes after the deadline elapses, the proposal is moved to the list of active bounties which can be found on the **Bounties view**. If the proposal fails then any user who contributed can claim a refund by navigating to the list of timed out proposals by selecting the **Select a Timed out Proposal** option on the **Proposal view**, and then entering the proposal ID.  
+If a proposal passes i.e. it has more up votes than down votes after the deadline elapses, the proposal is moved to the list of active bounties which can be found on the **Bounties view**. If the proposal fails then any user who contributed can claim a refund by navigating to the list of timed out proposals by selecting the **Select a Timed out Proposal** option on the **Proposal view**, and then entering the proposal ID.  
 
 We encourage you to play around with the DApp and create as many proposals as you want to and up vote, down vote and contribute to them.  
 
