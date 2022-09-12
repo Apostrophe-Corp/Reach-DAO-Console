@@ -45,7 +45,7 @@ We recommend running the DApp using Ubuntu20.04 terminal.
 
 >Note: We recommend running this project on two terminals, but strongly advise against running `./reach run` simultaneously. Instead after a successful build on the first terminal, then run the DApp on the second one. This is to prevent duplicate network names from being created on build.
 
-1. Run the DApp in preferably in two terminals.
+1. Run the DApp in preferably two terminals.
 
 2. After a successful build, the DApp would start on the terminal, afterwards you may decide to create an account (Only possible on Reach DevNet) or connect an existing account through the mnemonic.
 
