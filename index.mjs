@@ -15,7 +15,7 @@ const noneNull = (byte) => {
   return string;
 };
 
-let [user, contractInstance, contract, proposals, bounties, views] = [
+let [user, contractInstance, contract, proposals, bounties] = [
   {},
   null,
   {},
@@ -365,7 +365,14 @@ const showInfoCenter = async () => {
         await setRole();
         break;
       case 0:
-        process.exit(0);
+        const confirmed = await ask.ask(
+          `[‼] Confirm exit [y/n]`,
+          ask.yesno
+        );
+        if (confirmed)
+          process.exit(0);
+        else
+          await showInfoCenter();
         break;
       default:
         await showInfoCenter();
@@ -377,7 +384,7 @@ const showInfoCenter = async () => {
   1. View Proposals
   2. View Bounties
   3. Back to Select Roles
-  0. Exit Application`,
+  0. Exit Reach DAO`,
     input => {
       if (Number(input) == NaN) {
         throw Error("[‼] Please enter a valid input");
@@ -646,7 +653,14 @@ Link: ${p.link ?? "Link"}\n
         await setRole();
         break;
       case 0:
-        process.exit(0);
+        const confirmed = await ask.ask(
+          `[‼] Confirm exit [y/n]`,
+          ask.yesno
+        );
+        if (confirmed)
+          process.exit(0);
+        else
+          await showProposals();
         break;
       default:
         await showProposals();
@@ -661,7 +675,7 @@ Link: ${p.link ?? "Link"}\n
   4. View Bounties
   5. View Info Center
   6. Back to Select Roles
-  0. Exit Application`,
+  0. Exit Reach DAO`,
     input => {
       if (Number(input) == NaN) {
         throw Error("[‼] Please enter a valid input");
@@ -761,7 +775,14 @@ Grand_Prize: 99999 ${reach.standardUnit}\n
         await setRole();
         break;
       case 0:
-        process.exit(0);
+        const confirmed = await ask.ask(
+          `[‼] Confirm exit [y/n]`,
+          ask.yesno
+        );
+        if (confirmed)
+          process.exit(0);
+        else
+          await showBounties();
         break;
       default:
         await showBounties();
@@ -774,7 +795,7 @@ Grand_Prize: 99999 ${reach.standardUnit}\n
   2. View Info Center
   3. View Proposals
   4. Back to Select Roles
-  0. Exit Application`,
+  0. Exit Reach DAO`,
     input => {
       if (Number(input) == NaN) {
         throw Error("[‼] Please enter a valid input");
@@ -788,6 +809,11 @@ Grand_Prize: 99999 ${reach.standardUnit}\n
 /**
  * End of build
  */
+
+/**
+ * DApp start
+ */
+
 await connectAccount();
 
 process.exit(0);
