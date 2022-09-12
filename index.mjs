@@ -321,7 +321,7 @@ const deploy = async () => {
 
 const makeProposal = async proposal => {
   const proposalSetup = async () => {
-    const deadline = { ETH: 1, ALGO: 10, CFX: 100 }[reach.connector];
+    const deadline = { ETH: 2, ALGO: 20, CFX: 200 }[reach.connector];
     const ctc = user.account.contract(backend);
     ctc.p.Deployer({
       getProposal: {
