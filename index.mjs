@@ -535,7 +535,7 @@ const showProposals = async () => {
 	const getProposalInfo = async () => {
 		let [title, link, description] = ['', '', '']
 
-		title = await ask.ask(`[+] Enter the Proposal's Title Max (25)`, (value) =>
+		title = await ask.ask(`[+] Enter the Proposal's Title (Max 25)`, (value) =>
 			String(value).slice(0, 25)
 		)
 
