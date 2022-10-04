@@ -161,34 +161,41 @@ const reevaluate = async ({
 		)
 		if (blockCreated + deadline < currentConsensusTime) {
 			if (upvotes > downvotes) {
-				const nBounty = proposals.filter((el) => Number(el.id) === id)[0]
+				const nBounty = proposals.filter(
+					(el) => Number(el.id) === Number(parseInt(id))
+				)[0]
 				bounties.push(nBounty)
 
-				const xXProposals = proposals.filter((el) => Number(el.id) !== id)
+				const xXProposals = proposals.filter(
+					(el) => Number(el.id) !== Number(parseInt(id))
+				)
 				proposals = xXProposals
+				// await contractInstance.apis.Voters.timedOut(id, 1)
 				await alertThis(
 					'This proposal seems to have missed becoming a bounty, you can now find it on the Bounties List'
 				)
 			} else if (contribs > 0) {
 				const fProposals = proposals.map((el) => {
-					if (Number(el.id) === id) {
+					if (Number(el.id) === Number(parseInt(id))) {
 						el['timedOut'] = true
 						el['didPass'] = false
 					}
 					return el
 				})
 				proposals = fProposals
+				// await contractInstance.apis.Voters.timedOut(id, 0)
 				await alertThis(
 					'This proposal already failed with funds, you can now find it on the Timed Out Proposals list'
 				)
 			} else {
 				const remainingProposals = proposals.filter((el) => {
-					if (Number(el.id) === id) {
+					if (Number(el.id) === Number(parseInt(id))) {
 						el['isDown'] = true
 					}
-					return Number(el.id) !== id
+					return Number(el.id) !== Number(parseInt(id))
 				})
 				proposals = remainingProposals
+				// await contractInstance.apis.Voters.projectDown(id)
 				await alertThis(
 					'This appears to be a rogue proposal, and has been taken down'
 				)
@@ -258,7 +265,6 @@ const connectAndClaimRefund = async (id, ctcInfoStr) => {
 				false
 			)
 		}
-		refundResolve?.resolve && refundResolve.resolve(didRefund)
 	} catch (error) {
 		await alertThis('Request failed', false)
 	}

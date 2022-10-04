@@ -13,6 +13,7 @@
 
 ref.js
 test.js
+Dockerfile
 
 # production
 */build
