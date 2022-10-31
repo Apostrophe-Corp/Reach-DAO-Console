@@ -64,7 +64,6 @@ export const main = Reach.App(() => {
 		contributed: Fun([UInt, UInt], Null),
 		timedOut: Fun([UInt, UInt], Null),
 		projectDown: Fun([UInt], Null),
-		checkTime: Fun([], UInt),
 	})
 
 	const Proposals = Events({
@@ -240,10 +239,6 @@ export const main = Reach.App(() => {
 				notify(null)
 				const num1 = fNum
 				Proposals.that(state.pad('projectDown'), num1, 0)
-				return keepGoing
-			})
-			.api(Voters.checkTime, (notify) => {
-				notify(thisConsensusTime())
 				return keepGoing
 			})
 	}
