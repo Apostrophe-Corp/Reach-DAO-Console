@@ -156,9 +156,7 @@ const reevaluate = async ({
 	contribs,
 }) => {
 	try {
-		const currentConsensusTime = parseInt(
-			await contractInstance.apis.Voters.checkTime()
-		)
+		const currentConsensusTime = await reach.getNetworkTime()
 		if (blockCreated + deadline < currentConsensusTime) {
 			if (upvotes > downvotes) {
 				const nBounty = proposals.filter(
